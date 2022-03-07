@@ -344,18 +344,26 @@
     </footer>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        let socket = io();
-        const myform = document.querySelector('.form-test');
-        myform.onsubmit = function send(e) {
-            e.preventDefault();
-            const name = document.querySelector('input#firstname').value;
-            socket.emit("name", name);
-        }
-        socket.on('myBroadcast', data => {
-            alert(data);
-        });
+        let socket = io('/sell');
+        socket.on('sellEvent', data => {
+            console.log(data);
+        })
+         /*
+  basic data read
+  */
+        // const myform = document.querySelector('.form-test');
+        // myform.onsubmit = function send(e) {
+        //     e.preventDefault();
+        //     const name = document.querySelector('input#firstname').value;
+        //     socket.emit("name", name);
+        // }
+        // socket.on('myBroadcast', data => {
+        //     alert(data);
+        // });
 
-
+        /*
+        basic data read
+        */
         // socket.on('test', (data) => {
         //     document.querySelector('h1.font-weight-light').textContent = data;
         // });
